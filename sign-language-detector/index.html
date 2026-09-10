@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Language Detector</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; background: #111; color: #eee; }
+    #container { position: relative; width: 640px; height: 480px; margin: 20px auto; background: #000; }
+    video, canvas { position: absolute; left: 0; top: 0; width: 640px; height: 480px; }
+    #controls { margin-top: 20px; }
+    input, button, select { font-size: 16px; padding: 8px; margin: 5px; }
+    #status { font-size: 20px; margin-top: 10px; color: #0f0; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+</head>
+<body>
+  <h1>Sign Language Detector</h1>
+
+  <div id="container">
+    <video id="video" autoplay playsinline></video>
+    <canvas id="canvas" width="640" height="480"></canvas>
+  </div>
+
+  <div id="controls">
+    <div>
+      <label>Mode:</label>
+      <select id="mode">
+        <option value="record">Record Sign</option>
+        <option value="predict">Predict Sign</option>
+      </select>
+    </div>
+
+    <div id="recordControls">
